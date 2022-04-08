@@ -8,7 +8,7 @@ export class MessagesController {
 
   @Post()
   createMessage(@Body() body: CreateMessageDto) {
-    console.log(body);
+    console.log('here is ', body);
   }
 
   @Get('/:id')
