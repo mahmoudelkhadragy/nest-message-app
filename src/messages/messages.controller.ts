@@ -6,15 +6,17 @@ import { CreateMessageDto } from './dtos/create-messages.dto';
 export class MessagesController {
   constructor(private messageService: MessagesService) {}
   @Get()
-  listMessgaes() {}
+  listMessgaes() {
+    return this.messageService.findAll();
+  }
 
   @Post()
   createMessage(@Body() body: CreateMessageDto) {
-    console.log('here is ', body);
+    return this.messageService.create(body.content);
   }
 
   @Get('/:id')
   getMessage(@Param('id') id: string) {
-    this.messageService.findOne(id);
+    return this.messageService.findOne(id);
   }
 }
